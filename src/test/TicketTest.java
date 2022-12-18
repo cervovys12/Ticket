@@ -41,4 +41,13 @@ public class TicketTest {
         commande.addItem(item2);
         commande.showItems();
     }
+    @Test
+    public void showTotalPriceWithoutTax() {
+        Commande commande = new Commande();
+        Item item = new Item("Pepsi", 4, 2);
+        commande.addItem(item);
+        Item item2 = new Item("pizza", 4, 4);
+        commande.addItem(item2);
+        commande.ValidateCommande(true);
+    }
 }

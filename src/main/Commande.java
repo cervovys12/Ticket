@@ -7,6 +7,7 @@ import java.util.Map;
 public class Commande {
 
 	private List<Item> items = new ArrayList<>();
+	private float prixTotaleSansTaxes=0f;
 
 	public List<Item> getItems() {
 		return items;
@@ -19,6 +20,7 @@ public class Commande {
 	public void ValidateCommande(boolean isValidated) {
 		if(isValidated) {
 			showItems();
+			System.out.println(getPrixTotaleSansTaxes());
 		}
 		else {
 			addNewItem();
@@ -31,5 +33,12 @@ public class Commande {
 	}
 	public void addNewItem() {
 		System.out.println("ajouter un nouveau article");
+	}
+	public float getPrixTotaleSansTaxes() {
+
+		for (Item item : items) {
+			prixTotaleSansTaxes += item.getPrixTotal();
+		}
+		return prixTotaleSansTaxes;
 	}
 }

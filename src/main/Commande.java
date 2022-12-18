@@ -46,6 +46,7 @@ public class Commande {
 	}
 	public float getPrixTotaleSansTaxes() {
 
+		prixTotaleSansTaxes=0f;
 		for (Item item : items) {
 			prixTotaleSansTaxes += item.getPrixTotal();
 		}
@@ -58,6 +59,7 @@ public class Commande {
 		tva.put("Ma", 0.3);
 	}
 	public float getTTCPrice() {
+		TCCPrice=0f;
 		for(Item item: items) {
 			TCCPrice += item.getPrixTotal() *(1 - tva.get(item.getDesignation()));
 		}
@@ -75,5 +77,8 @@ public class Commande {
 		reductionList.add(10);
 		reductionList.add(15);
 		return reductionList;
+	}
+	public double getPriceAfterReduction(float reduction) {
+		return ((getPrixTotaleSansTaxes()*reduction)/100);
 	}
 }

@@ -1,7 +1,11 @@
 package test;
 
+import main.Commande;
 import main.Item;
 import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
@@ -19,5 +23,22 @@ public class TicketTest {
         Item item = new Item("Tacos", quantite, prixUnitaire);
         assertEquals(item.getPrixTotal(),quantite * prixUnitaire,DELTA);
         System.out.println(item.toString());
+    }
+    @Test
+    public void CommandeIsValidated() {
+        Commande commande = new Commande();
+        Item item = new Item("Pepsi", 4, 2);
+        commande.addItem(item);
+        commande.ValidateCommande(true);
+    }
+    @Test
+    public void CommandeIsNotValidated() {
+        Commande commande = new Commande();
+        Item item = new Item("Pepsi", 4, 2);
+        commande.addItem(item);
+        commande.ValidateCommande(false);
+        Item item2 = new Item("pizza", 4, 4);
+        commande.addItem(item2);
+        commande.showItems();
     }
 }

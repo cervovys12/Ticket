@@ -65,4 +65,26 @@ public class TicketTest {
         commande.inittaux();
         System.out.println(commande.getTTCPrice());
     }
+    @Test
+    public void ShowTaxList() {
+        Commande commande = new Commande();
+        commande.inittaux();
+        for (String name: commande.getTva().keySet()) {
+            String key = name.toString();
+            String value = commande.getTva().get(name).toString();
+            System.out.println(key + " " + value);
+        }
+    }
+    
+    @Test
+    public void displayTVAwithCode() {
+    	// ID 7
+        Commande commande = new Commande();
+        commande.inittaux();
+        //ETANT DONNE un etat 
+          String etat="Fr";
+          assertEquals("0.2",commande.getTva().get(etat).toString());
+        //ALORS le TVA correspondant
+          System.out.println(commande.getTva().get(etat).toString());
+    }
 }

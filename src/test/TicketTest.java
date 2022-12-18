@@ -4,9 +4,6 @@ import main.Commande;
 import main.Item;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import static org.junit.Assert.assertEquals;
 
 public class TicketTest {
@@ -73,6 +70,20 @@ public class TicketTest {
             String key = name.toString();
             String value = commande.getTva().get(name).toString();
             System.out.println(key + " " + value);
+        }
+    }
+    @Test
+    public void showTaxCodeByCountryCode() {
+        Commande commande = new Commande();
+        commande.inittaux();
+        Double taxCode = commande.getTaxCodeByCountryCode("Gn");
+        System.out.println(taxCode);
+    }
+    @Test
+    public void showReductionList() {
+        Commande commande = new Commande();
+        for (Integer reduction : commande.getReductionList()) {
+            System.out.println(reduction + "%");
         }
     }
 }

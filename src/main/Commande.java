@@ -63,4 +63,17 @@ public class Commande {
 		}
 		return TCCPrice;
 	}
+	public Double getTaxCodeByCountryCode(String codeEtat) {
+		return tva.get(codeEtat);
+	}
+	public List<Integer> getReductionList()
+	{
+		List<Integer> reductionList = new ArrayList<>();
+		reductionList.add(3);
+		reductionList.add(5);
+		reductionList.add(7);
+		reductionList.add(10);
+		reductionList.add(15);
+		return reductionList;
+	}
 }

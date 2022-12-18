@@ -55,4 +55,14 @@ public class TicketTest {
         Item item = new Item("Pepsi", 4, 2,"fr");
         System.out.println(item.toString());
     }
+    @Test
+    public void TTCPrice() {
+        Commande commande = new Commande();
+        Item item = new Item("Pepsi", 4, 2,"Fr");
+        Item item2 = new Item("pizza", 4, 4,"Ma");
+        commande.addItem(item);
+        commande.addItem(item2);
+        commande.inittaux();
+        System.out.println(commande.getTTCPrice());
+    }
 }

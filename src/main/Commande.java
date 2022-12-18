@@ -8,6 +8,8 @@ public class Commande {
 
 	private List<Item> items = new ArrayList<>();
 	private float prixTotaleSansTaxes=0f;
+	private float TCCPrice = 0f;
+	private Map<String,Double> tva=new HashMap<>();
 
 	public List<Item> getItems() {
 		return items;
@@ -40,5 +42,17 @@ public class Commande {
 			prixTotaleSansTaxes += item.getPrixTotal();
 		}
 		return prixTotaleSansTaxes;
+	}
+	public void inittaux()
+	{
+		tva.put("Fr", 0.2);
+		tva.put("Gn", 0.1);
+		tva.put("Ma", 0.3);
+	}
+	public float getTTCPrice() {
+		for(Item item: items) {
+			TCCPrice += item.getPrixTotal() *(1 - tva.get(item.getDesignation()));
+		}
+		return TCCPrice;
 	}
 }

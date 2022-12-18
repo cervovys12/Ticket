@@ -55,4 +55,19 @@ public class TicketTest {
         Item item = new Item("Pepsi", 4, 2,"fr");
         System.out.println(item.toString());
     }
+
+	@Test
+    public void TTCPrice() {
+    	System.out.println("ID 8 Appliquer le TVA sur la commande");
+    	
+    	//ETANT DONNE une commande
+        Commande commande = new Commande();
+        Item item = new Item("Pepsi", 4, 2,"Fr");
+        Item item2 = new Item("pizza", 4, 4,"Ma");
+        commande.addItem(item);
+        commande.addItem(item2);
+        float taux=0.25f;
+        //ALORS afficher le prix TTC
+        System.out.println("TTC price :"+commande.getTTCPrice(taux));
+    }
 }

@@ -76,4 +76,7 @@ public class Commande {
 		reductionList.add(15);
 		return reductionList;
 	}
+	public double getPriceAfterReduction(double reduction) {
+		return getPrixTotaleSansTaxes() * (1-reduction);
+	}
 }

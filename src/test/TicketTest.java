@@ -86,4 +86,13 @@ public class TicketTest {
             System.out.println(reduction + "%");
         }
     }
+    @Test
+    public void showPriceAfterReduction() {
+        Commande commande = new Commande();
+        Item item = new Item("Pepsi", 4, 2,"Fr");
+        Item item2 = new Item("pizza", 4, 4,"Ma");
+        commande.addItem(item);
+        commande.addItem(item2);
+        System.out.println(commande.getPriceAfterReduction(0.03));
+    }
 }

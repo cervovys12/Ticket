@@ -65,4 +65,14 @@ public class TicketTest {
         commande.inittaux();
         System.out.println(commande.getTTCPrice());
     }
+    @Test
+    public void ShowTaxList() {
+        Commande commande = new Commande();
+        commande.inittaux();
+        for (String name: commande.getTva().keySet()) {
+            String key = name.toString();
+            String value = commande.getTva().get(name).toString();
+            System.out.println(key + " " + value);
+        }
+    }
 }

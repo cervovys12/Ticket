@@ -11,6 +11,14 @@ public class Commande {
 	private float TCCPrice = 0f;
 	private Map<String,Double> tva=new HashMap<>();
 
+	public Map<String, Double> getTva() {
+		return tva;
+	}
+
+	public void setTva(Map<String, Double> tva) {
+		this.tva = tva;
+	}
+
 	public List<Item> getItems() {
 		return items;
 	}

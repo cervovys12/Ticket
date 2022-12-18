@@ -45,11 +45,12 @@ public class Commande {
 		System.out.println("ajouter un nouveau article");
 	}
 	public float getPrixTotaleSansTaxes() {
-
+		float prix = 0f;
 		for (Item item : items) {
-			prixTotaleSansTaxes += item.getPrixTotal();
+			prix += item.getPrixTotal();
 		}
-		return prixTotaleSansTaxes;
+		prixTotaleSansTaxes = prix;
+		return prix;
 	}
 	public void inittaux()
 	{
@@ -78,5 +79,22 @@ public class Commande {
 	}
 	public double getPriceAfterReduction(double reduction) {
 		return getPrixTotaleSansTaxes() * (1-reduction);
+	}
+	public double getReductionByTotalPrice()
+	{
+		float res=getPrixTotaleSansTaxes();
+		if(res>1000 && res <= 5000)
+			return 0.03;
+		else if(res>5000 && res <= 7000)
+			return 0.05;
+		else if(res>7000 && res <= 10000)
+			return 0.07;
+		else if(res>10000 && res <= 50000)
+			return 0.10;
+		else if(res>50000)
+			return 0.15;
+		else
+			return 1.0;
+
 	}
 }

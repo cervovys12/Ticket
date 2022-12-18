@@ -95,4 +95,14 @@ public class TicketTest {
         commande.addItem(item2);
         System.out.println(commande.getPriceAfterReduction(0.03));
     }
+    @Test
+    public void showReductionByTotalPrice() {
+        Commande commande = new Commande();
+        Item item = new Item("Pepsi", 4, 1000,"Fr");
+        Item item2 = new Item("pizza", 4, 2000,"Ma");
+        commande.addItem(item);
+        commande.addItem(item2);
+        System.out.println(commande.getPrixTotaleSansTaxes());
+        System.out.println(commande.getReductionByTotalPrice());
+    }
 }

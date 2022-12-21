@@ -10,6 +10,7 @@ public class Commande {
 	private float prixTotaleSansTaxes=0f;
 	private float TCCPrice = 0f;
 	private Map<String,Double> tva=new HashMap<>();
+	private boolean isValidated=false;
 
 	public List<Item> getItems() {
 		return items;
@@ -19,23 +20,13 @@ public class Commande {
 		this.items.add(item);
 	}
 
-	public void ValidateCommande(boolean isValidated) {
-		if(isValidated) {
-			showItems();
-			System.out.println(getPrixTotaleSansTaxes());
-		}
-		else {
-			addNewItem();
-		}
-	}
+	
 	public void showItems() {
 		for (Item item: items) {
 			System.out.println(item.toString());
 		}
 	}
-	public void addNewItem() {
-		System.out.println("ajouter un nouveau article");
-	}
+	
 	public float getPrixTotaleSansTaxes() {
 
 		for (Item item : items) {
@@ -53,6 +44,11 @@ public class Commande {
 	public float getTTCPrice(float ttva) {
 		TCCPrice=getPrixTotaleSansTaxes()+ttva;
 		return TCCPrice;
+	}
+
+	public void setIsValidated(boolean b) {
+		// TODO Auto-generated method stub
+		this.isValidated=b;
 	}
 	
 }

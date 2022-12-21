@@ -9,6 +9,7 @@ public class Commande {
 	private List<Item> items = new ArrayList<>();
 	private float prixTotaleSansTaxes=0f;
 	private float TCCPrice = 0f;
+	private float reductionRate=0f;
 	private Map<String,Double> tva=new HashMap<>();
 
 	public Map<String, Double> getTva() {
@@ -79,6 +80,11 @@ public class Commande {
 		return reductionList;
 	}
 	public double getPriceAfterReduction(float reduction) {
+		this.reductionRate=reduction;
 		return ((getPrixTotaleSansTaxes()*reduction)/100);
+	}
+	
+	public float getReductionRate() {
+		return reductionRate;
 	}
 }

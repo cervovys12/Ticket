@@ -107,4 +107,25 @@ public class TicketTest {
         System.out.println("Montant de réduction : "+commande.getPriceAfterReduction(reduction));
         System.out.println("Total HT réduit : "+prixHTreduit);
     }
+    
+    @Test
+    public void showReductionRate() {
+    	
+    	//ETANT DONNE unec commande
+    	
+        Commande commande = new Commande();
+        Item item = new Item("Pepsi", 4, 2,"Fr");
+        Item item2 = new Item("pizza", 4, 4,"Ma");
+        commande.addItem(item);
+        commande.addItem(item2);
+     // exemple de reduction
+        float reduction=50;
+        double prixHTreduit=commande.getPrixTotaleSansTaxes()-commande.getPriceAfterReduction(reduction);
+        
+       
+        //ALORS afficher le taux de reduction et le montant de la reduction
+        System.out.println("Taux Réduction: "+reduction+" %");
+        System.out.println("Montant de réduction : "+commande.getPriceAfterReduction(reduction));
+       
+    }
 }

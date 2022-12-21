@@ -28,6 +28,22 @@ public class TicketTest {
         System.out.println(item.toString());
         
     }
+    
+    @Test
+    public void showItemDesignation() {
+    	System.out.println("ID 18");
+    	//ETANT DONNE un article 
+    	//QUAND je saisie une quantite , un prix unitaire et une designation
+        float prixUnitaire = 3;
+        int quantite = 2;
+        String designation="Tc";
+        Item item = new Item("Tacos", quantite, prixUnitaire);
+         item.setDesignation(designation);
+        //ALORS afficher le prix total
+        
+        System.out.println("Designation :"+item.getDesignation());
+        
+    }
    
 }
 

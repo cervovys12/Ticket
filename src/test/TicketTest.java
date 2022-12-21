@@ -2,7 +2,9 @@ package test;
 
 import org.junit.Test;
 
+import main.Commande;
 import main.Item;
+
 
 public class TicketTest {
 	
@@ -27,5 +29,45 @@ public class TicketTest {
         System.out.println(item.toString());
         
     }
-   
+
+    @Test
+    public void CommandeIsValidated() {
+    	System.out.println("ID 3");
+    	//ETANT DONNE une commande ayant déjà un article 
+        Commande commande = new Commande();
+        Item item = new Item("Pepsi", 4, 2);
+        commande.addItem(item);
+        //QUAND on le valide
+        commande.setIsValidated(true);
+        //ALORS une question proposant de saisir un nouveau article est proposée
+        System.out.println("Voulez-vous ajouter un autre article ?  NON ");
+        //ET repondre non 
+         //Afficher le premier article
+        System.out.println("Liste des articles ");
+        commande.showItems();
+        
+    }
+    @Test
+    public void CommandeIsNotValidated() {
+    	System.out.println("ID 3");
+    	//ETANT DONNE une commande ayant déjà un article 
+        Commande commande = new Commande();
+        Item item = new Item("Pepsi", 4, 2);
+        commande.addItem(item);
+        //QUAND on le valide
+        commande.setIsValidated(false);
+        //ALORS une question proposant de saisir un nouveau article est proposée
+        System.out.println("Voulez-vous ajouter un autre article ?  Oui ");
+        //ET repondre oui 
+        Item item2 = new Item("pizza", 4, 4);
+        commande.addItem(item2);
+    
+        System.out.println("Liste des articles ");
+        commande.showItems();
+       
+    }
+  
+    
+ 
 }
+

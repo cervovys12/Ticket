@@ -50,4 +50,16 @@ public class TicketTest {
         commande.addItem(item2);
         commande.ValidateCommande(true);
     }
+    
+    @Test 
+    public void showReductionValue()
+    {
+    	
+    	//ETANT DONNE une commande
+    	Commande commande =new Commande();
+    	
+    	//ALORS afficher le prix de reduction fixé à 0€
+    	
+    	System.out.println("Prix réduction : "+commande.getReductionValue()+ " €");
+    }
 }

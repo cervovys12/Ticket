@@ -8,6 +8,8 @@ public class Commande {
 
 	private List<Item> items = new ArrayList<>();
 	private float prixTotaleSansTaxes=0f;
+	
+	private float reductionValue=0f;
 
 	public List<Item> getItems() {
 		return items;
@@ -40,5 +42,9 @@ public class Commande {
 			prixTotaleSansTaxes += item.getPrixTotal();
 		}
 		return prixTotaleSansTaxes;
+	}
+	
+	public float getReductionValue() {
+		return reductionValue;
 	}
 }
